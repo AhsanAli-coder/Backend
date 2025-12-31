@@ -27,7 +27,7 @@ const userSchema = new Schema(
     },
     avatar: {
       type: String, // cloudinary url
-      required: true,
+      required: true, 
     },
     coverImage: {
       type: String, // cloudinary url
@@ -56,10 +56,11 @@ userSchema.pre("save", async function (next) {
       this.password =await bcrypt.hash(this.password, 10);
   next();
 });
-
+ 
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
+//This method checks if the entered password matches the hashed password stored in the database.
 
 
 userSchema.methods.generateAccessToken = function () {
