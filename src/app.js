@@ -16,8 +16,6 @@ app.use(cookieParser())
 app.get('/',(req,res)=>{
      res.send("hallo complex backend")
 })
-
-
 //routes import 
 import userRouter from './routes/user.routes.js'
 //routes declaration 
